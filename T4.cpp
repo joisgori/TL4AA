@@ -53,6 +53,8 @@ int main(){
   cin >> NCasos;
   //Vector de respuesta tendrá el tamaño de número de casos
   int VRespuesta[NCasos];
+  //pos vector respuesta
+  int s = 0;
   while(NCasos > 0){
     //cout<< "Sucede la vez número: " << NCasos << endl;
     cout << "Ingrese el tamaño del arreglo: "; //vector
@@ -65,18 +67,25 @@ int main(){
 
     quickSort(vector, 0, tamArreglo - 1);
 
-    for(int i = 0; i<tamArreglo; i++){
-      cout << vector[i] << " ";
+    //Ahora debo analizar el último número del arreglo:
+    int num = vector[tamArreglo - 1];
+    
+    if(num % 2 == 0){
+      VRespuesta[s] = num + 2;
+    }else{
+      VRespuesta[s] = num + 1;
     }
+
+    s++;
     NCasos--;
   }
 
-  cout << "Fin";
-  /*
-  básicamente acá mi respuesta debería imprimirla como estoy 
-  haciendo actualmente la versión del vector de prueba
-  pero con "\n" o endl;
+  //Ahora sí imprimo mi vector de respuesta:
 
-  return 0;
-  */
+  for(int i = 0; i<NCasos; i++){
+  cout << VRespuesta[i] << "\n";
+  }
+
+
+  cout << "Fin";
 }
