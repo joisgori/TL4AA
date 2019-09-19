@@ -49,7 +49,7 @@ void quickSort(int arr[], int low, int high)
 
 
 int main(){
-  cout << "Pido el número de casos ";
+  //cout << "Pido el número de casos ";
   cin >> NCasos;
   //Vector de respuesta tendrá el tamaño de número de casos
   int NRespuestas = NCasos;
@@ -58,7 +58,7 @@ int main(){
   int s = 0;
   while(NCasos > 0){
     //cout<< "Sucede la vez número: " << NCasos << endl;
-    cout << "Ingrese el tamaño del arreglo: "; //vector
+    //cout << "Ingrese el tamaño del arreglo: "; //vector
     cin >> tamArreglo;
     int vector[tamArreglo];
     //Pido los datos con los que se llenará el arreglo.
