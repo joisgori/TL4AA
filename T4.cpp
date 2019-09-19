@@ -1,10 +1,52 @@
 #include <iostream>
+#include <bits/stdc++.h> 
 using namespace std;
 
 //Variables que ocuparé.
 int NCasos = 0, tamArreglo;
 
 //Creo mi función y todo para hacer uso de quicksort y arreglar mi arreglo
+// A utility function to swap two elements  
+void swap(int* a, int* b)  
+{  
+    int t = *a;  
+    *a = *b;  
+    *b = t;  
+}
+
+int partition (int arr[], int low, int high)  
+{  
+    int pivot = arr[high]; // pivot  
+    int i = (low - 1); // Index of smaller element  
+  
+    for (int j = low; j <= high - 1; j++)  
+    {  
+        // If current element is smaller than the pivot  
+        if (arr[j] < pivot)  
+        {  
+            i++; // increment index of smaller element  
+            swap(&arr[i], &arr[j]);  
+        }  
+    }  
+    swap(&arr[i + 1], &arr[high]);  
+    return (i + 1);  
+}
+
+void quickSort(int arr[], int low, int high)  
+{  
+    if (low < high)  
+    {  
+        /* pi is partitioning index, arr[p] is now  
+        at right place */
+        int pi = partition(arr, low, high);  
+  
+        // Separately sort elements before  
+        // partition and after partition  
+        quickSort(arr, low, pi - 1);  
+        quickSort(arr, pi + 1, high);  
+    }  
+}
+
 
 int main(){
   cout << "Pido el número de casos ";
@@ -21,6 +63,8 @@ int main(){
       cin >> vector[i];
     }
 
+    quickSort(vector, 0, tamArreglo - 1);
+
     for(int i = 0; i<tamArreglo; i++){
       cout << vector[i] << " ";
     }
@@ -36,4 +80,3 @@ int main(){
   return 0;
   */
 }
-
