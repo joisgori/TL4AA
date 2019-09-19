@@ -52,7 +52,8 @@ int main(){
   cout << "Pido el número de casos ";
   cin >> NCasos;
   //Vector de respuesta tendrá el tamaño de número de casos
-  int VRespuesta[NCasos];
+  int NRespuestas = NCasos;
+  int VRespuesta[NRespuestas];
   //pos vector respuesta
   int s = 0;
   while(NCasos > 0){
@@ -80,12 +81,9 @@ int main(){
     NCasos--;
   }
 
-  //Ahora sí imprimo mi vector de respuesta:
+  for(int i = 0; i<NRespuestas; i++){
+    cout << VRespuesta[i] << "\n";
+    }
 
-  for(int i = 0; i<NCasos; i++){
-  cout << VRespuesta[i] << "\n";
-  }
-
-
-  cout << "Fin";
+  return 0;
 }
